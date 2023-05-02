@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/pokeball.png" />
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Pokedex</title>
+  </head>
+  <body onload="init()">
+    <nav class="navbar bg-body-tertiary bg-dark">
+      <div class="container-fluid">
+        <div class="leftHeader">
+          <a class="navbar-brand"><img src="img/pokedex_logo.png" alt="" /></a>
+          <div class="imprintLine">
+            <a class="imprint" href="imprint.html">Imprint</a>
+            <p class="copyright">| © 2023 Florian Isenberg</p>
+          </div>
+        </div>
+        <form class="d-flex" role="search">
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Search Pokemon"
+            aria-label="Search"
+            onkeyup="searchPokemon()"
+            id="search"
+          />
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+    <section
+      class="pokedexBackground"
+      id="cardContent"
+      onscroll="loadNewPokemon()"
+    ></section>
+    <section
+      class="popUpContainer dnone"
+      id="popUpContainer"
+      onclick="closePokeCard()"
+    >
+      <div
+        class="openPokeCard"
+        id="openPokeCard"
+        onclick="doNotClose(event)"
+      ></div>
+    </section>
+    <div class="loadersize" id="loader">
+      <div class="wrapper">
+        <div class="pokeball"></div>
+      </div>
+    </div>
+  </body>
+</html>
